@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-gray-50 to-gray-100 text-gray-900 font-inter;
+  }
+  
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer utilities {
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .glassmorphism {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .premium-glass {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+  
+  .premium-shadow {
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.1),
+      0 10px 20px rgba(0, 0, 0, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+  
+  .luxury-gradient {
+    background: linear-gradient(135deg, 
+      rgba(99, 102, 241, 0.1) 0%, 
+      rgba(168, 85, 247, 0.1) 25%,
+      rgba(244, 114, 182, 0.1) 50%,
+      rgba(251, 146, 60, 0.1) 75%,
+      rgba(59, 130, 246, 0.1) 100%
+    );
+  }
+  
+  .text-gradient-premium {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gradient-blue {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@layer components {
+  .card-grid {
+    @apply grid gap-4 sm:gap-6;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  
+  .card-grid-1 {
+    @apply grid grid-cols-1 gap-4 sm:gap-6;
+  }
+  
+  .card-grid-2 {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6;
+  }
+  
+  .card-grid-3 {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6;
+  }
+  
+  .card-grid-4 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6;
+  }
+
+  .card-grid-full {
+    @apply grid grid-cols-1 gap-6;
+  }
+
+  .card-grid-expanded {
+    @apply grid grid-cols-1 gap-8;
+  }
+
+  .card-expanded {
+    @apply grid grid-cols-1 md:grid-cols-[2fr,1fr] gap-6;
+  }
+
+  .card-expanded-content {
+    @apply flex flex-col gap-4;
+  }
+
+  .card-expanded-sidebar {
+    @apply flex flex-col gap-4 bg-white/5 rounded-xl p-4;
+  }
+
+  .skill-tag {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300;
+    @apply bg-white/10 text-gray-700 hover:bg-white/20;
+  }
+
+  .skill-tag[data-active="true"] {
+    @apply bg-blue-100 text-blue-800;
+  }
+  
+  .section-heading {
+    @apply text-2xl md:text-3xl lg:text-4xl font-space font-bold mb-6 md:mb-8 lg:mb-10;
+    background: linear-gradient(135deg, #1e293b 0%, #475569 50%, #334155 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+  }
+  
+  .section-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 2px;
+  }
+  
+  .featured-card {
+    @apply lg:col-span-1;
+  }
+  
+  .container-responsive {
+    @apply mx-auto px-4 sm:px-6 lg:px-8;
+    max-width: 1280px;
+  }
+}
