@@ -64,7 +64,7 @@ const ChatBot = ({ isOpen, onClose }: ChatBotProps) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
-          className="fixed bottom-8 right-8 w-[800px] h-[800px] bg-white rounded-2xl shadow-xl overflow-hidden z-50"
+          className="fixed bottom-8 right-8 w-[800px] min-h-[600px] max-h-[80vh] bg-white rounded-2xl shadow-xl overflow-hidden z-50"
         >
           {/* Header */}
           <div className="p-4 border-b bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800">
@@ -82,7 +82,7 @@ const ChatBot = ({ isOpen, onClose }: ChatBotProps) => {
           </div>
 
           {/* Messages */}
-          <div className="h-[calc(100%-9rem)] overflow-y-auto p-6">
+          <div className="h-[calc(100%-8rem)] overflow-y-auto p-6">
             {messages.map((message, index) => (
               <motion.div
                 key={index}
