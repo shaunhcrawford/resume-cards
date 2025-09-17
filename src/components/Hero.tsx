@@ -72,7 +72,7 @@ const Hero = () => {
               onClick={() => setIsChatOpen(true)}
               className="px-8 py-3 border-2 border-blue-600 text-blue-700 rounded-lg hover:bg-blue-50 transition-colors font-medium"
             >
-              Chat with AI
+              Chat with Shaun's AI Assistant
             </button>
           </motion.div>
 
