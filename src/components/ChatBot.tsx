@@ -64,7 +64,7 @@ const ChatBot = ({ isOpen, onClose }: ChatBotProps) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
-          className="fixed bottom-8 right-8 w-[800px] min-h-[600px] max-h-[80vh] bg-white rounded-2xl shadow-xl overflow-hidden z-50"
+          className="fixed bottom-4 left-4 right-4 sm:left-auto sm:bottom-8 sm:right-8 w-auto sm:w-[600px] lg:w-[800px] min-h-[500px] sm:min-h-[600px] max-h-[90vh] sm:max-h-[80vh] bg-white rounded-xl sm:rounded-2xl shadow-xl overflow-hidden z-50"
         >
           {/* Header */}
           <div className="p-4 border-b bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800">
@@ -82,7 +82,7 @@ const ChatBot = ({ isOpen, onClose }: ChatBotProps) => {
           </div>
 
           {/* Messages */}
-          <div className="h-[calc(100%-8rem)] overflow-y-auto p-6">
+          <div className="h-[calc(100%-8rem)] overflow-y-auto p-3 sm:p-6">
             {messages.map((message, index) => (
               <motion.div
                 key={index}
@@ -91,7 +91,7 @@ const ChatBot = ({ isOpen, onClose }: ChatBotProps) => {
                 className={`mb-4 ${message.role === 'user' ? 'text-right' : 'text-left'}`}
               >
                 <div
-                  className={`inline-block max-w-[80%] p-3 rounded-lg ${
+                  className={`inline-block max-w-[85%] sm:max-w-[80%] p-2 sm:p-3 rounded-lg text-sm sm:text-base ${
                     message.role === 'user'
                       ? 'bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 text-white'
                       : 'bg-gray-100 text-gray-800'
