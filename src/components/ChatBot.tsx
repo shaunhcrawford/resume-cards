@@ -64,7 +64,7 @@ const ChatBot = ({ isOpen, onClose }: ChatBotProps) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
-          className="fixed bottom-4 left-4 right-4 sm:left-auto sm:bottom-8 sm:right-8 w-auto sm:w-[600px] lg:w-[800px] min-h-[500px] sm:min-h-[600px] max-h-[90vh] sm:max-h-[80vh] bg-white rounded-xl sm:rounded-2xl shadow-xl overflow-hidden z-50"
+          className="fixed bottom-4 left-4 right-4 sm:left-auto sm:bottom-8 sm:right-8 w-auto sm:w-[600px] lg:w-[800px] h-[600px] sm:h-[700px] max-h-[90vh] bg-white rounded-xl sm:rounded-2xl shadow-xl overflow-hidden z-50 flex flex-col"
         >
           {/* Header */}
           <div className="p-4 border-b bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800">
@@ -82,27 +82,33 @@ const ChatBot = ({ isOpen, onClose }: ChatBotProps) => {
           </div>
 
           {/* Messages */}
-          <div className="h-[calc(100%-8rem)] overflow-y-auto p-3 sm:p-6">
-            {messages.map((message, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className={`mb-4 ${message.role === 'user' ? 'text-right' : 'text-left'}`}
-              >
-                <div
-                  className={`inline-block max-w-[85%] sm:max-w-[80%] p-2 sm:p-3 rounded-lg text-sm sm:text-base ${
-                    message.role === 'user'
-                      ? 'bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 text-white'
-                      : 'bg-gray-100 text-gray-800'
-                  }`}
+          <div className="flex-1 overflow-y-auto p-3 sm:p-6">
+            <div className="flex flex-col space-y-4">
+              {messages.map((message, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
-                  {message.content}
-                </div>
-              </motion.div>
-            ))}
+                  <div
+                    className={`inline-block max-w-[85%] sm:max-w-[75%] p-3 sm:p-4 rounded-lg text-sm sm:text-base break-words ${
+                      message.role === 'user'
+                        ? 'bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 text-white'
+                        : 'bg-gray-100 text-gray-800'
+                    }`}
+                  >
+                    {message.content}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
             {isLoading && (
-              <div className="text-left mb-4">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="flex justify-start mt-4"
+              >
                 <div className="inline-block bg-gray-100 p-3 rounded-lg">
                   <div className="flex space-x-2">
                     <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" />
@@ -110,13 +116,13 @@ const ChatBot = ({ isOpen, onClose }: ChatBotProps) => {
                     <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
                   </div>
                 </div>
-              </div>
+              </motion.div>
             )}
             <div ref={messagesEndRef} />
           </div>
 
           {/* Input */}
-          <form onSubmit={handleSubmit} className="absolute bottom-0 left-0 right-0 p-4 bg-white border-t shadow-md">
+          <form onSubmit={handleSubmit} className="flex-shrink-0 p-4 bg-white border-t shadow-md">
             <div className="flex space-x-2">
               <textarea
                 ref={textareaRef}

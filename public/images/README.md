@@ -13,3 +13,4 @@ The current implementation expects the photo to be at:
 This will be served at runtime as:
 `/images/shaun.jpg`
 
+
