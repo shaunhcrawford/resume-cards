@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import ChatBot from './ChatBot';
+import ContactFormModal from './ContactFormModal';
 
 const Hero = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isContactOpen, setIsContactOpen] = useState(false);
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -62,12 +64,12 @@ const Hero = () => {
 
           {/* CTAs */}
           <motion.div className="flex gap-4 mb-12" variants={itemVariants}>
-            <a
-              href="mailto:shaunhcrawford@gmail.com"
+            <button
+              onClick={() => setIsContactOpen(true)}
               className="px-8 py-3 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 text-white rounded-lg hover:opacity-90 transition-opacity font-medium"
             >
               Get in Touch
-            </a>
+            </button>
             <button
               onClick={() => setIsChatOpen(true)}
               className="px-8 py-3 border-2 border-blue-600 text-blue-700 rounded-lg hover:bg-blue-50 transition-colors font-medium"
@@ -98,6 +100,7 @@ const Hero = () => {
       </div>
     </motion.section>
     <ChatBot isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
+    <ContactFormModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
     </>
   );
 };
