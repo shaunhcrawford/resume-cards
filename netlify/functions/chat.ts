@@ -95,7 +95,7 @@ Your goal is to help people understand Shaun's professional experience while mai
         ...messageHistory,
         { role: 'user', content: message }
       ],
-      model: 'gpt-3.5-turbo',
+      model: 'gpt-4o-mini',
     });
 
     return {
