@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
+import ContactFormModal from './ContactFormModal';
 
 const Contact = () => {
+  const [isContactOpen, setIsContactOpen] = useState(false);
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -79,8 +82,8 @@ const Contact = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
             variants={itemVariants}
           >
-            <motion.a
-              href="mailto:shaunhcrawford@gmail.com"
+            <motion.button
+              onClick={() => setIsContactOpen(true)}
               className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl font-semibold text-lg overflow-hidden transition-all duration-300"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
@@ -89,7 +92,7 @@ const Contact = () => {
               <span className="relative flex items-center gap-2">
                 📧 Get in Touch
               </span>
-            </motion.a>
+            </motion.button>
             
             <motion.a
               href="/documents/Shaun_Crawford_Resume.pdf"
@@ -153,6 +156,7 @@ const Contact = () => {
           </motion.div>
         </motion.div>
       </div>
+      <ContactFormModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
     </motion.section>
   );
 };
