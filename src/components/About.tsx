@@ -69,7 +69,7 @@ const About = () => {
               </p>
               <p>
                 Currently at Top Hat, I've led initiatives that increased feature adoption by 200% and 
-                developed growth frameworks projected to drive 400% signup growth. I believe in combining 
+                developed growth frameworks projected to drive 100% signup growth for specific channels. I believe in combining 
                 strategic insight with hands-on execution.
               </p>
               <p>

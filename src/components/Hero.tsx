@@ -88,8 +88,8 @@ const Hero = () => {
               <div className="text-sm sm:text-base text-gray-600 font-medium">Feature Adoption Increase</div>
             </div>
             <div className="text-center sm:text-left premium-glass rounded-xl p-6">
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-1 text-gradient-premium">400%</div>
-              <div className="text-sm sm:text-base text-gray-600 font-medium">Projected Signup Growth</div>
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-1 text-gradient-premium">100%</div>
+              <div className="text-sm sm:text-base text-gray-600 font-medium">Increase in Signups From Growth Loops</div>
             </div>
             <div className="text-center sm:text-left premium-glass rounded-xl p-6">
               <div className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-1 text-gradient-gold">90%</div>
